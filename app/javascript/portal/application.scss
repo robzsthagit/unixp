@@ -4,8 +4,6 @@
 @import 'tailwindcss/utilities';
 
 @import 'widget/assets/scss/reset';
-@import 'shared/assets/fonts/InterDisplay/inter-display';
-@import 'shared/assets/fonts/inter';
 @import 'dashboard/assets/scss/next-colors';
 
 html,
@@ -18,7 +16,7 @@ body {
 
 .font-default {
   font-family:
-    'InterDisplay',
+    'Sen',
     -apple-system,
     system-ui,
     BlinkMacSystemFont,

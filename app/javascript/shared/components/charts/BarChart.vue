@@ -30,7 +30,7 @@ const emit = defineEmits(['elementClick']);
 ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale);
 
 const fontFamily =
-  'Inter,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+  'Sen,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 
 const defaultChartOptions = {
   responsive: true,
