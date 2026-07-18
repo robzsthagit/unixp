@@ -129,18 +129,18 @@ export const twilioTemplates = [
     template_type: 'quick_reply',
   },
   {
-    body: 'What type of Chatwoot installation are you using? Select "Chatwoot Cloud" if you are using app.chatwoot.com, otherwise select "Self-hosted Chatwoot".',
+    body: 'What type of UniXP installation are you using? Select "UniXP Cloud" if you are using app.unixp.com, otherwise select "Self-hosted UniXP".',
     types: {
       'twilio/quick-reply': {
-        body: 'What type of Chatwoot installation are you using? Select "Chatwoot Cloud" if you are using app.chatwoot.com, otherwise select "Self-hosted Chatwoot".',
+        body: 'What type of UniXP installation are you using? Select "UniXP Cloud" if you are using app.unixp.com, otherwise select "Self-hosted UniXP".',
         actions: [
           {
-            id: 'Chatwoot Cloud_payload',
-            title: 'Chatwoot Cloud',
+            id: 'UniXP Cloud_payload',
+            title: 'UniXP Cloud',
           },
           {
-            id: 'Self-hosted Chatwoot_payload',
-            title: 'Self-hosted Chatwoot',
+            id: 'Self-hosted UniXP_payload',
+            title: 'Self-hosted UniXP',
           },
         ],
       },

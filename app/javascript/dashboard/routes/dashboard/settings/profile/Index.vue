@@ -101,10 +101,10 @@ export default {
       currentUser: 'getCurrentUser',
       currentUserId: 'getCurrentUserID',
       globalConfig: 'globalConfig/get',
-      isOnChatwootCloud: 'globalConfig/isOnChatwootCloud',
+      isOnUniXPCloud: 'globalConfig/isOnUniXPCloud',
     }),
     apiAndWebhooksEnabled() {
-      if (!this.isOnChatwootCloud) return true;
+      if (!this.isOnUniXPCloud) return true;
 
       return this.currentUser.accounts.some(
         account => account.api_and_webhooks
@@ -120,7 +120,7 @@ export default {
       );
     },
     isMfaEnabled() {
-      return parseBoolean(window.chatwootConfig?.isMfaEnabled);
+      return parseBoolean(window.unixpConfig?.isMfaEnabled);
     },
   },
   mounted() {

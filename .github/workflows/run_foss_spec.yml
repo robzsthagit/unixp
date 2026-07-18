@@ -1,4 +1,4 @@
-name: Run Chatwoot CE spec
+name: Run UniXP CE spec
 permissions:
   contents: read
 on:

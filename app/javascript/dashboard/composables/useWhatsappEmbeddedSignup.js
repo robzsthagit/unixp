@@ -72,11 +72,11 @@ export function useWhatsappEmbeddedSignup() {
       (async () => {
         try {
           await setupFacebookSdk(
-            window.chatwootConfig?.whatsappAppId,
-            window.chatwootConfig?.whatsappApiVersion
+            window.unixpConfig?.whatsappAppId,
+            window.unixpConfig?.whatsappApiVersion
           );
           authCode = await initWhatsAppEmbeddedSignup(
-            window.chatwootConfig?.whatsappConfigurationId
+            window.unixpConfig?.whatsappConfigurationId
           );
           resolveIfReady();
         } catch (error) {

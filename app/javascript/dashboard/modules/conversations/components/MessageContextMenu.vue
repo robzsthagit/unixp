@@ -88,7 +88,7 @@ export default {
   methods: {
     async copyLinkToMessage() {
       const fullConversationURL =
-        window.chatwootConfig.hostURL +
+        window.unixpConfig.hostURL +
         frontendURL(
           conversationUrl({
             id: this.conversationId,

@@ -1,4 +1,4 @@
-class ChatwootMarkdownRenderer
+class UniXPMarkdownRenderer
   def initialize(content)
     @content = content
   end

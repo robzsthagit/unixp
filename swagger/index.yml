@@ -1,16 +1,16 @@
 openapi: '3.1.0'
 info:
-  title: Chatwoot
-  description: This is the API documentation for Chatwoot server.
+  title: UniXP
+  description: This is the API documentation for UniXP server.
   version: 1.1.0
-  termsOfService: https://www.chatwoot.com/terms-of-service/
+  termsOfService: https://www.unixp.com/terms-of-service/
   contact:
-    email: hello@chatwoot.com
+    email: hello@unixp.com
   license:
     name: MIT License
     url: https://opensource.org/licenses/MIT
 servers:
-  - url: https://app.chatwoot.com/
+  - url: https://app.unixp.com/
 paths:
   $ref: ./paths/index.yml
 components:

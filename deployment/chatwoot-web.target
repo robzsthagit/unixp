@@ -1,6 +1,6 @@
 [Unit]
-Description=Chatwoot Web Server
-Wants=chatwoot-web.1.service
+Description=UniXP Web Server
+Wants=unixp-web.1.service
 
 [Install]
 WantedBy=multi-user.target

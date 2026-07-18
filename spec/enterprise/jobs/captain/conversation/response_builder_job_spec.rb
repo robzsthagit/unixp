@@ -301,11 +301,11 @@ RSpec.describe Captain::Conversation::ResponseBuilderJob, type: :job do
         it 'falls back to the assistant response when the classifier fails' do
           error = StandardError.new('classifier unavailable')
           allow(mock_action_classifier_service).to receive(:classify).and_raise(error)
-          allow(ChatwootExceptionTracker).to receive(:new).and_call_original
+          allow(UniXPExceptionTracker).to receive(:new).and_call_original
 
           described_class.perform_now(conversation, assistant)
 
-          expect(ChatwootExceptionTracker).to have_received(:new).with(error, account: account)
+          expect(UniXPExceptionTracker).to have_received(:new).with(error, account: account)
           expect(conversation.reload.status).to eq('pending')
           expect(conversation.messages.outgoing.last.content).to eq('Hey, welcome to Captain Specs')
           expect(account.reload.usage_limits[:captain][:responses][:consumed]).to eq(1)
@@ -576,7 +576,7 @@ RSpec.describe Captain::Conversation::ResponseBuilderJob, type: :job do
 
       it 'still delivers the reply when session capture fails' do
         allow(Captain::AgentSession).to receive(:create!).and_raise(StandardError, 'capture failed')
-        allow(ChatwootExceptionTracker).to receive(:new).and_call_original
+        allow(UniXPExceptionTracker).to receive(:new).and_call_original
 
         expect do
           described_class.perform_now(conversation, assistant)
@@ -585,7 +585,7 @@ RSpec.describe Captain::Conversation::ResponseBuilderJob, type: :job do
         expect(conversation.messages.outgoing.count).to eq(1)
         expect(conversation.messages.outgoing.last.content).to eq('Hey, welcome to Captain V2')
         expect(conversation.reload.status).to eq('pending')
-        expect(ChatwootExceptionTracker).to have_received(:new)
+        expect(UniXPExceptionTracker).to have_received(:new)
       end
     end
 
@@ -725,7 +725,7 @@ RSpec.describe Captain::Conversation::ResponseBuilderJob, type: :job do
         allow(mock_message_builder).to receive(:generate_content)
           .and_raise(StandardError, 'Max retries exceeded')
 
-        expect(ChatwootExceptionTracker).to receive(:new).and_call_original
+        expect(UniXPExceptionTracker).to receive(:new).and_call_original
 
         described_class.perform_now(conversation, assistant)
 
@@ -741,7 +741,7 @@ RSpec.describe Captain::Conversation::ResponseBuilderJob, type: :job do
       end
 
       it 'handles error and triggers handoff' do
-        expect(ChatwootExceptionTracker).to receive(:new)
+        expect(UniXPExceptionTracker).to receive(:new)
           .with(standard_error, account: account)
           .and_call_original
 

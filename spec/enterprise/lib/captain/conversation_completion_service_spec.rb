@@ -269,11 +269,11 @@ RSpec.describe Captain::ConversationCompletionService do
       end
 
       before do
-        allow(ChatwootApp).to receive(:chatwoot_cloud?).and_return(true)
+        allow(UniXPApp).to receive(:unixp_cloud?).and_return(true)
         allow(account).to receive(:usage_limits).and_return(
           {
-            agents: ChatwootApp.max_limit,
-            inboxes: ChatwootApp.max_limit,
+            agents: UniXPApp.max_limit,
+            inboxes: UniXPApp.max_limit,
             captain: { responses: { current_available: 0 } }
           }
         )

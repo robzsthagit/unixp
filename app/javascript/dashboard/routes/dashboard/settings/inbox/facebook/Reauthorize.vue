@@ -33,9 +33,9 @@ export default {
   methods: {
     runFBInit() {
       FB.init({
-        appId: window.chatwootConfig.fbAppId,
+        appId: window.unixpConfig.fbAppId,
         xfbml: true,
-        version: window.chatwootConfig.fbApiVersion,
+        version: window.unixpConfig.fbApiVersion,
         status: true,
       });
       window.fbSDKLoaded = true;
