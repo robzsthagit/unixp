@@ -9,9 +9,9 @@
 # #
 
 name: Run Linux nightly installer
+# Schedule disabled: the installer script URL (get.chatwoot.app) is upstream's;
+# re-enable once a UniXP installer endpoint exists.
 on:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:

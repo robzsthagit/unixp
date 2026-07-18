@@ -3,8 +3,9 @@
 ## deployment url will be of the form unixp-pr-<pr_number>.herokuapp.com
 name: Deploy Check
 
+# Disabled: checks upstream's Heroku review apps, which are not available for this fork.
 on:
-  pull_request:
+  workflow_dispatch:
 
 # If two pushes happen within a short time in the same PR, cancel the run of the oldest push
 concurrency:

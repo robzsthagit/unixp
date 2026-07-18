@@ -19,7 +19,7 @@ concurrency:
 jobs:
   action:
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'unixp/unixp' }}
+    if: ${{ github.repository == 'robzsthagit/unixp' }}
     steps:
       - uses: dessant/lock-threads@v3
         with: 

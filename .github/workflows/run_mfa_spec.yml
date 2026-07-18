@@ -14,7 +14,7 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     # Only run if MFA test keys are available
-    if: github.event_name == 'workflow_dispatch' || (github.repository == 'unixp/unixp' && github.actor != 'dependabot[bot]')
+    if: github.event_name == 'workflow_dispatch' || (github.repository == 'robzsthagit/unixp' && github.actor != 'dependabot[bot]')
 
     services:
       postgres:

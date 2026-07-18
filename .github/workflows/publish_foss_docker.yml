@@ -6,13 +6,9 @@
 
 name: Publish UniXP CE docker images
 
+# Automatic publishing disabled: DOCKER_REPO and DOCKERHUB_* secrets need to be
+# set up for a registry this fork owns before re-enabling push triggers.
 on:
-  push:
-    branches:
-      - develop
-      - master
-    tags:
-      - v*
   workflow_dispatch:
 
 env:
