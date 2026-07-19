@@ -1,7 +1,7 @@
-export const CHATWOOT_ERROR = 'chatwoot:error';
-export const CHATWOOT_ON_MESSAGE = 'chatwoot:on-message';
-export const CHATWOOT_ON_START_CONVERSATION = 'chatwoot:on-start-conversation';
-export const CHATWOOT_POSTBACK = 'chatwoot:postback';
-export const CHATWOOT_READY = 'chatwoot:ready';
-export const CHATWOOT_OPENED = 'chatwoot:opened';
-export const CHATWOOT_CLOSED = 'chatwoot:closed';
+export const UNIXP_ERROR = 'unixp:error';
+export const UNIXP_ON_MESSAGE = 'unixp:on-message';
+export const UNIXP_ON_START_CONVERSATION = 'unixp:on-start-conversation';
+export const UNIXP_POSTBACK = 'unixp:postback';
+export const UNIXP_READY = 'unixp:ready';
+export const UNIXP_OPENED = 'unixp:opened';
+export const UNIXP_CLOSED = 'unixp:closed';

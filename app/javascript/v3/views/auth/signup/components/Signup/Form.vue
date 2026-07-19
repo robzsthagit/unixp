@@ -54,21 +54,21 @@ const globalConfig = computed(() => store.getters['globalConfig/get']);
 
 const termsLink = computed(() =>
   t('REGISTER.TERMS_ACCEPT')
-    .replace('https://www.chatwoot.com/terms', globalConfig.value.termsURL)
+    .replace('https://www.unixp.com/terms', globalConfig.value.termsURL)
     .replace(
-      'https://www.chatwoot.com/privacy-policy',
+      'https://www.unixp.com/privacy-policy',
       globalConfig.value.privacyURL
     )
 );
 
 const allowedLoginMethods = computed(
-  () => window.chatwootConfig.allowedLoginMethods || ['email']
+  () => window.unixpConfig.allowedLoginMethods || ['email']
 );
 
 const showGoogleOAuth = computed(
   () =>
     allowedLoginMethods.value.includes('google_oauth') &&
-    Boolean(window.chatwootConfig.googleOAuthClientId)
+    Boolean(window.unixpConfig.googleOAuthClientId)
 );
 
 const isFormValid = computed(() => !v$.value.$invalid);

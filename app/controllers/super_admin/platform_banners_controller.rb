@@ -1,9 +1,9 @@
 class SuperAdmin::PlatformBannersController < SuperAdmin::ApplicationController
-  before_action :ensure_chatwoot_cloud
+  before_action :ensure_unixp_cloud
 
   private
 
-  def ensure_chatwoot_cloud
-    raise ActionController::RoutingError, 'Not Found' unless ChatwootApp.chatwoot_cloud?
+  def ensure_unixp_cloud
+    raise ActionController::RoutingError, 'Not Found' unless UniXPApp.unixp_cloud?
   end
 end

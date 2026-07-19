@@ -1,22 +1,18 @@
 # #
-# # This action will publish Chatwoot CE docker image.
+# # This action will publish UniXP CE docker image.
 # # This is set to run against merges to develop, master
 # # and when tags are created.
 # #
 
-name: Publish Chatwoot CE docker images
+name: Publish UniXP CE docker images
 
+# Automatic publishing disabled: DOCKER_REPO and DOCKERHUB_* secrets need to be
+# set up for a registry this fork owns before re-enabling push triggers.
 on:
-  push:
-    branches:
-      - develop
-      - master
-    tags:
-      - v*
   workflow_dispatch:
 
 env:
-  DOCKER_REPO: chatwoot/chatwoot
+  DOCKER_REPO: unixp/unixp
 
 permissions:
   contents: read
@@ -48,7 +44,7 @@ jobs:
           rm -rf enterprise
           rm -rf spec/enterprise
 
-      - name: Set Chatwoot edition
+      - name: Set UniXP edition
         run: |
           echo -en '\nENV CW_EDITION="ce"' >> docker/Dockerfile
 

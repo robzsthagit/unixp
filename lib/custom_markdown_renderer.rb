@@ -9,7 +9,7 @@ class CustomMarkdownRenderer < CommonMarker::HtmlRenderer
     @embed_regexes ||= config.transform_values { |embed_config| Regexp.new(embed_config['regex']) }
   end
 
-  # Matches columnResizing({ cellMinWidth: 50 }) in @chatwoot/prosemirror-schema
+  # Matches columnResizing({ cellMinWidth: 50 }) in @unixp/prosemirror-schema
   # so cells without an explicit colwidth render the same minimum here as in the editor.
   TABLE_CELL_MIN_WIDTH_PX = 50
   COLWIDTHS_COMMENT = /<!--cw-colwidths:([\d,]+)-->/

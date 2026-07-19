@@ -12,7 +12,7 @@ module Enterprise::Api::V1::AccountsSettings
 
     Internal::Accounts::MarketingAttributionService.new(account: @account, cookies: cookies).perform
   rescue StandardError => e
-    ChatwootExceptionTracker.new(e).capture_exception
+    UniXPExceptionTracker.new(e).capture_exception
   end
 
   def permitted_settings_attributes

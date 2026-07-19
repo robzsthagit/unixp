@@ -7,33 +7,33 @@ import {
 describe('PortalHelper', () => {
   describe('buildPortalURL', () => {
     it('returns the correct url', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
-        helpCenterURL: 'https://help.chatwoot.com',
+      window.unixpConfig = {
+        hostURL: 'https://app.unixp.com',
+        helpCenterURL: 'https://help.unixp.com',
       };
       expect(buildPortalURL('handbook')).toEqual(
-        'https://help.chatwoot.com/hc/handbook'
+        'https://help.unixp.com/hc/handbook'
       );
-      window.chatwootConfig = {};
+      window.unixpConfig = {};
     });
   });
 
   describe('buildPortalArticleURL', () => {
     it('returns the correct url', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
-        helpCenterURL: 'https://help.chatwoot.com',
+      window.unixpConfig = {
+        hostURL: 'https://app.unixp.com',
+        helpCenterURL: 'https://help.unixp.com',
       };
       expect(
         buildPortalArticleURL('handbook', 'culture', 'fr', 'article-slug')
-      ).toEqual('https://help.chatwoot.com/hc/handbook/articles/article-slug');
-      window.chatwootConfig = {};
+      ).toEqual('https://help.unixp.com/hc/handbook/articles/article-slug');
+      window.unixpConfig = {};
     });
 
     it('returns the correct url with custom domain', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
-        helpCenterURL: 'https://help.chatwoot.com',
+      window.unixpConfig = {
+        hostURL: 'https://app.unixp.com',
+        helpCenterURL: 'https://help.unixp.com',
       };
       expect(
         buildPortalArticleURL(
@@ -47,9 +47,9 @@ describe('PortalHelper', () => {
     });
 
     it('handles https in custom domain correctly', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
-        helpCenterURL: 'https://help.chatwoot.com',
+      window.unixpConfig = {
+        hostURL: 'https://app.unixp.com',
+        helpCenterURL: 'https://help.unixp.com',
       };
       expect(
         buildPortalArticleURL(
@@ -63,13 +63,13 @@ describe('PortalHelper', () => {
     });
 
     it('uses hostURL when helpCenterURL is not available', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
+      window.unixpConfig = {
+        hostURL: 'https://app.unixp.com',
         helpCenterURL: '',
       };
       expect(
         buildPortalArticleURL('handbook', 'culture', 'fr', 'article-slug')
-      ).toEqual('https://app.chatwoot.com/hc/handbook/articles/article-slug');
+      ).toEqual('https://app.unixp.com/hc/handbook/articles/article-slug');
     });
   });
 

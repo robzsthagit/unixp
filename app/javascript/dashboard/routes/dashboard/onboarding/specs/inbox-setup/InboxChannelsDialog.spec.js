@@ -35,11 +35,11 @@ const mountDialog = () =>
 
 describe('InboxChannelsDialog Facebook gating', () => {
   afterEach(() => {
-    delete window.chatwootConfig;
+    delete window.unixpConfig;
   });
 
   it('opens the Facebook page picker when fbAppId is configured', async () => {
-    window.chatwootConfig = { fbAppId: 'fb-app' };
+    window.unixpConfig = { fbAppId: 'fb-app' };
     const wrapper = mountDialog();
 
     wrapper.vm.open('facebook');
@@ -49,7 +49,7 @@ describe('InboxChannelsDialog Facebook gating', () => {
   });
 
   it('shows the grid (not the picker) when fbAppId is missing', async () => {
-    window.chatwootConfig = {};
+    window.unixpConfig = {};
     const wrapper = mountDialog();
 
     wrapper.vm.open('facebook');

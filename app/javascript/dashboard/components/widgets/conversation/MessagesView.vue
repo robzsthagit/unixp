@@ -95,7 +95,7 @@ export default {
       currentUserId: 'getCurrentUserID',
       listLoadingStatus: 'getAllMessagesLoaded',
       currentAccountId: 'getCurrentAccountId',
-      isOnChatwootCloud: 'globalConfig/isOnChatwootCloud',
+      isOnUniXPCloud: 'globalConfig/isOnUniXPCloud',
     }),
     isOpen() {
       return this.currentChat?.status === wootConstants.STATUS_TYPE.OPEN;
@@ -174,7 +174,7 @@ export default {
       );
     },
     isInstagramRestrictionBannerVisible() {
-      return this.isOnChatwootCloud && this.isAnInstagramChannel;
+      return this.isOnUniXPCloud && this.isAnInstagramChannel;
     },
     instagramRestrictionStatusUrl() {
       return META_RESTRICTION_STATUS_URL;

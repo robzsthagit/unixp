@@ -4,23 +4,23 @@ describe('#MessageFormatter', () => {
   describe('content with links', () => {
     it('should format correctly', () => {
       const message =
-        'Chatwoot is an opensource tool. [Chatwoot](https://www.chatwoot.com)';
+        'UniXP is an opensource tool. [UniXP](https://www.unixp.com)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <a href="https://www.chatwoot.com" class="link" rel="noreferrer noopener nofollow" target="_blank">Chatwoot</a></p>'
+        '<p>UniXP is an opensource tool. <a href="https://www.unixp.com" class="link" rel="noreferrer noopener nofollow" target="_blank">UniXP</a></p>'
       );
     });
     it('should format correctly', () => {
       const message =
-        'Chatwoot is an opensource tool. https://www.chatwoot.com';
+        'UniXP is an opensource tool. https://www.unixp.com';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <a href="https://www.chatwoot.com" class="link" rel="noreferrer noopener nofollow" target="_blank">https://www.chatwoot.com</a></p>'
+        '<p>UniXP is an opensource tool. <a href="https://www.unixp.com" class="link" rel="noreferrer noopener nofollow" target="_blank">https://www.unixp.com</a></p>'
       );
     });
     it('should not convert template variables to links when linkify is disabled', () => {
-      const message = 'Hey {{customer.name}}, check https://chatwoot.com';
+      const message = 'Hey {{customer.name}}, check https://unixp.com';
       const formatter = new MessageFormatter(message, false, false, false);
       expect(formatter.formattedMessage).toMatch(
-        '<p>Hey {{customer.name}}, check https://chatwoot.com</p>'
+        '<p>Hey {{customer.name}}, check https://unixp.com</p>'
       );
     });
   });
@@ -45,25 +45,25 @@ describe('#MessageFormatter', () => {
   describe('content with image and has "cw_image_height" query at the end of URL', () => {
     it('should set image height correctly', () => {
       const message =
-        'Chatwoot is an opensource tool. ![](http://chatwoot.com/chatwoot.png?cw_image_height=24px)';
+        'UniXP is an opensource tool. ![](http://unixp.com/unixp.png?cw_image_height=24px)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <img src="http://chatwoot.com/chatwoot.png?cw_image_height=24px" alt="" style="height: 24px;" /></p>'
+        '<p>UniXP is an opensource tool. <img src="http://unixp.com/unixp.png?cw_image_height=24px" alt="" style="height: 24px;" /></p>'
       );
     });
 
     it('should set image height correctly if its original size', () => {
       const message =
-        'Chatwoot is an opensource tool. ![](http://chatwoot.com/chatwoot.png?cw_image_height=auto)';
+        'UniXP is an opensource tool. ![](http://unixp.com/unixp.png?cw_image_height=auto)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <img src="http://chatwoot.com/chatwoot.png?cw_image_height=auto" alt="" style="height: auto;" /></p>'
+        '<p>UniXP is an opensource tool. <img src="http://unixp.com/unixp.png?cw_image_height=auto" alt="" style="height: auto;" /></p>'
       );
     });
 
     it('should not set height', () => {
       const message =
-        'Chatwoot is an opensource tool. ![](http://chatwoot.com/chatwoot.png)';
+        'UniXP is an opensource tool. ![](http://unixp.com/unixp.png)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <img src="http://chatwoot.com/chatwoot.png" alt="" /></p>'
+        '<p>UniXP is an opensource tool. <img src="http://unixp.com/unixp.png" alt="" /></p>'
       );
     });
   });
@@ -89,46 +89,46 @@ After`;
 
   describe('tweets', () => {
     it('should return the same string if not tags or @mentions', () => {
-      const message = 'Chatwoot is an opensource tool';
+      const message = 'UniXP is an opensource tool';
       expect(new MessageFormatter(message).formattedMessage).toMatch(message);
     });
 
     it('should add links to @mentions', () => {
       const message =
-        '@chatwootapp is an opensource tool thanks @longnonexistenttwitterusername';
+        '@unixpapp is an opensource tool thanks @longnonexistenttwitterusername';
       expect(
         new MessageFormatter(message, true, false).formattedMessage
       ).toMatch(
-        '<p><a href="http://twitter.com/chatwootapp" class="link" rel="noreferrer noopener nofollow" target="_blank">@chatwootapp</a> is an opensource tool thanks @longnonexistenttwitterusername</p>'
+        '<p><a href="http://twitter.com/unixpapp" class="link" rel="noreferrer noopener nofollow" target="_blank">@unixpapp</a> is an opensource tool thanks @longnonexistenttwitterusername</p>'
       );
     });
 
     it('should add links to #tags', () => {
-      const message = '#chatwootapp is an opensource tool';
+      const message = '#unixpapp is an opensource tool';
       expect(
         new MessageFormatter(message, true, false).formattedMessage
       ).toMatch(
-        '<p><a href="https://twitter.com/hashtag/chatwootapp" class="link" rel="noreferrer noopener nofollow" target="_blank">#chatwootapp</a> is an opensource tool</p>'
+        '<p><a href="https://twitter.com/hashtag/unixpapp" class="link" rel="noreferrer noopener nofollow" target="_blank">#unixpapp</a> is an opensource tool</p>'
       );
     });
   });
 
   describe('private notes', () => {
     it('should return the same string if not tags or @mentions', () => {
-      const message = 'Chatwoot is an opensource tool';
+      const message = 'UniXP is an opensource tool';
       expect(new MessageFormatter(message).formattedMessage).toMatch(message);
     });
 
     it('should add links to @mentions', () => {
       const message =
-        '@chatwootapp is an opensource tool thanks @longnonexistenttwitterusername';
+        '@unixpapp is an opensource tool thanks @longnonexistenttwitterusername';
       expect(
         new MessageFormatter(message, false, true).formattedMessage
       ).toMatch(message);
     });
 
     it('should add links to #tags', () => {
-      const message = '#chatwootapp is an opensource tool';
+      const message = '#unixpapp is an opensource tool';
       expect(
         new MessageFormatter(message, false, true).formattedMessage
       ).toMatch(message);
@@ -138,9 +138,9 @@ After`;
   describe('plain text content', () => {
     it('returns the plain text without HTML', () => {
       const message =
-        '<b>Chatwoot is an opensource tool. https://www.chatwoot.com</b>';
+        '<b>UniXP is an opensource tool. https://www.unixp.com</b>';
       expect(new MessageFormatter(message).plainText).toMatch(
-        'Chatwoot is an opensource tool. https://www.chatwoot.com'
+        'UniXP is an opensource tool. https://www.unixp.com'
       );
     });
   });

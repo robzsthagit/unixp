@@ -1,5 +1,5 @@
-# Contributing to Chatwoot
+# Contributing to UniXP
 
 Thanks for taking the time to contribute! :tada::+1:
 
-Please refer to our [Contributing Guide](https://www.chatwoot.com/docs/contributing-guide) for detailed instructions on how to contribute.
+Please refer to our [Contributing Guide](https://www.unixp.com/docs/contributing-guide) for detailed instructions on how to contribute.

@@ -1,22 +1,18 @@
 # #
-# # This action will publish Chatwoot EE docker image.
+# # This action will publish UniXP EE docker image.
 # # This is set to run against merges to develop, master
 # # and when tags are created.
 # #
 
-name: Publish Chatwoot EE docker images
+name: Publish UniXP EE docker images
 
+# Automatic publishing disabled: DOCKER_REPO and DOCKERHUB_* secrets need to be
+# set up for a registry this fork owns before re-enabling push triggers.
 on:
-  push:
-    branches:
-      - develop
-      - master
-    tags:
-      - v*
   workflow_dispatch:
 
 env:
-  DOCKER_REPO: chatwoot/chatwoot
+  DOCKER_REPO: unixp/unixp
 
 permissions:
   contents: read
@@ -43,7 +39,7 @@ jobs:
           platform=${{ matrix.platform }}
           echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV
 
-      - name: Set Chatwoot edition
+      - name: Set UniXP edition
         run: |
           echo -en '\nENV CW_EDITION="ee"' >> docker/Dockerfile
 

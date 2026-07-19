@@ -16,15 +16,15 @@ const props = defineProps({
 const emit = defineEmits(['channelItemClick']);
 
 const hasFbConfigured = computed(() => {
-  return window.chatwootConfig?.fbAppId;
+  return window.unixpConfig?.fbAppId;
 });
 
 const hasInstagramConfigured = computed(() => {
-  return window.chatwootConfig?.instagramAppId;
+  return window.unixpConfig?.instagramAppId;
 });
 
 const hasTiktokConfigured = computed(() => {
-  return window.chatwootConfig?.tiktokAppId;
+  return window.unixpConfig?.tiktokAppId;
 });
 
 const isActive = computed(() => {
